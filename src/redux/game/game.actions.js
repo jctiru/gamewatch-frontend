@@ -20,7 +20,7 @@ export const getPopularNowStart = () => ({
 });
 
 export const getPopularNowSuccess = (popularNow) => ({
-  type: GameActionTypes.GET_COMING_SOON_SUCCESS,
+  type: GameActionTypes.GET_POPULAR_NOW_SUCCESS,
   payload: popularNow,
 });
 
@@ -48,7 +48,7 @@ export const getRecentlyReleasedStart = () => ({
 });
 
 export const getRecentlyReleasedSuccess = (recentlyReleased) => ({
-  type: GameActionTypes.GET_COMING_SOON_SUCCESS,
+  type: GameActionTypes.GET_RECENTLY_RELEASED_SUCCESS,
   payload: recentlyReleased,
 });
 
