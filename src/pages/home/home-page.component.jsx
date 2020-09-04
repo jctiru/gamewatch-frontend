@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -15,7 +15,7 @@ const HomePage = ({
   getRecentlyReleasedStart,
   getComingSoonStart,
 }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     getPopularNowStart();
     getMostAnticipatedStart();
     getRecentlyReleasedStart();
@@ -23,8 +23,14 @@ const HomePage = ({
   });
   return (
     <>
-      <div>Popular Games Now</div>
-      <PopularNowContainer />
+      <div className="container">
+        <div>
+          <h2>Popular Games Now</h2>
+        </div>
+        <div>
+          <PopularNowContainer />
+        </div>
+      </div>
     </>
   );
 };
