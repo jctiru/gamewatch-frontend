@@ -1,0 +1,6 @@
+.game-card-title,
+.game-card-subtitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
