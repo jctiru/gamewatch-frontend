@@ -10,3 +10,9 @@ export const ImageSize = Object.freeze({
   s720p: "720p",
   s1080p: "1080p",
 });
+
+export const GameColumnCategory = Object.freeze({
+  MOST_ANTICIPATED: "most-anticipated",
+  RECENTLY_RELEASED: "recently-released",
+  COMING_SOON: "coming-soon",
+});
