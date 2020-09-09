@@ -5,3 +5,7 @@ export const getModifiedImageUrl = (imageUrl, imageSize) => {
 export const getNoImageUrl = (imageSize) => {
   return `//images.igdb.com/igdb/image/upload/t_${imageSize}/nocover_qhhlj6.jpg`;
 };
+
+export const getVideoUrl = (videoId) => {
+  return `https:www.youtube.com/watch?v=${videoId}`;
+};
