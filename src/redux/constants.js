@@ -9,6 +9,7 @@ export const ImageSize = Object.freeze({
   MICRO: "micro",
   s720p: "720p",
   s1080p: "1080p",
+  THUMB_WIDESCREEN_LARGE: "thumb_widescreen_large",
 });
 
 export const GameColumnCategory = Object.freeze({
