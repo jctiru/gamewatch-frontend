@@ -14,7 +14,7 @@ const GameCardSmall = ({ game }) => (
   <div className="mt-3 overflow-hidden">
     <div className="d-table-cell align-top pr-2">
       <div className="position-relative game-card-small-left">
-        <Link to={`game/${game.slug}`}>
+        <Link to={`games/${game.slug}`}>
           <img
             src={
               game.cover !== null
@@ -31,7 +31,7 @@ const GameCardSmall = ({ game }) => (
       </div>
     </div>
     <div className="d-table-cell align-top text-nowrap pl-1">
-      <Link to={`game/${game.slug}`} className="d-block">
+      <Link to={`games/${game.slug}`} className="d-block">
         {game.name}
       </Link>
       {dayjs.unix(game.first_release_date).format("MMM DD, YYYY")} (
