@@ -6,7 +6,7 @@ import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 
-import { getModifiedImageUrl } from "../../redux/helper";
+import { getModifiedImageUrl, getNoImageUrl } from "../../redux/helper";
 import { ImageSize } from "../../redux/constants";
 
 SwiperCore.use([Navigation]);
@@ -44,10 +44,14 @@ const GameRecommendation = ({ games }) => {
               <img
                 key={game.id}
                 className="img-fluid"
-                src={`${getModifiedImageUrl(
-                  game.cover.url,
-                  ImageSize.COVER_MED
-                )}`}
+                src={
+                  game.cover !== null
+                    ? `${getModifiedImageUrl(
+                        game.cover.url,
+                        ImageSize.COVER_MED
+                      )}`
+                    : `${getNoImageUrl(ImageSize.COVER_MED)}`
+                }
                 alt={`${game.name}`}
               />
             </Link>
