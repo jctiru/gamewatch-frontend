@@ -36,29 +36,32 @@ const GameRecommendation = ({ games }) => {
   };
 
   return (
-    <Swiper {...swiperSettings}>
-      {games.map((game) => (
-        <SwiperSlide key={game.id}>
-          <div>
-            <Link to={`${game.slug}`}>
-              <img
-                key={game.id}
-                className="img-fluid"
-                src={
-                  game.cover !== null
-                    ? `${getModifiedImageUrl(
-                        game.cover.url,
-                        ImageSize.COVER_MED
-                      )}`
-                    : `${getNoImageUrl(ImageSize.COVER_MED)}`
-                }
-                alt={`${game.name}`}
-              />
-            </Link>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div>
+    <h3>Recommendations</h3>
+      <Swiper {...swiperSettings}>
+        {games.map((game) => (
+          <SwiperSlide key={game.id}>
+            <div>
+              <Link to={`${game.slug}`}>
+                <img
+                  key={game.id}
+                  className="img-fluid"
+                  src={
+                    game.cover !== null
+                      ? `${getModifiedImageUrl(
+                          game.cover.url,
+                          ImageSize.COVER_MED
+                        )}`
+                      : `${getNoImageUrl(ImageSize.COVER_MED)}`
+                  }
+                  alt={`${game.name}`}
+                />
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 
