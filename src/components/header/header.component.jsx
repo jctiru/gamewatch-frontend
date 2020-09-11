@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand" to="/">
           GameWatch
@@ -12,13 +12,13 @@ const Header = () => {
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="navbar"
+          data-target="#navbar"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbar">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
               </Link>
