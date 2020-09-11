@@ -1,0 +1,22 @@
+.gamepage-header {
+  width: 100%;
+  padding-top: 220px;
+}
+
+.parallax-container {
+  position: absolute;
+  left: 0;
+  height: 220px;
+  margin-top: -220px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.parallax-background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
