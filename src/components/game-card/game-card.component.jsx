@@ -7,7 +7,7 @@ import { getModifiedImageUrl } from "../../redux/helper";
 import "./game-card.styles.scss";
 
 const GameCard = ({ game }) => (
-  <div className="card border-secondary">
+  <div className="card border-secondary my-1">
     <Link to={`games/${game.slug}`}>
       <img
         className="card-img-top"
@@ -15,8 +15,8 @@ const GameCard = ({ game }) => (
         alt={game.name}
       />
     </Link>
-    <div className="card-body">
-      <h6 className="card-title game-card-title">
+    <div className="card-body p-2">
+      <h6 className="game-card-title">
         <strong>
           <Link to={`games/${game.slug}`}>{game.name}</Link>
         </strong>
