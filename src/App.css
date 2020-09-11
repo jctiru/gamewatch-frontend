@@ -7,3 +7,9 @@
 main {
   flex: 1;
 }
+
+.jumbotron {
+  background: linear-gradient(120deg, #1793d1, #333333);
+  /* background: linear-gradient(120deg, #205e9b, #333333);
+  background: linear-gradient(120deg, #1793d1, #205e9b, #333333); */
+}

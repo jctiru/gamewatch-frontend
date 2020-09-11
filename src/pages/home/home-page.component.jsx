@@ -26,20 +26,29 @@ const HomePage = ({
   return (
     <>
       <div className="container">
+        <div className="jumbotron mt-4 text-white">
+          <h1 className="display-4 font-weight-bold">Game on!</h1>
+          <p className="lead">
+            GameWatch is your site which brings you video game information, news
+            and many more!
+          </p>
+          <hr className="my-4" />
+          <p>It's more than just a game.</p>
+        </div>
         <div>
           <h2>Popular Games Now</h2>
         </div>
-        <div>
+        <div className="mb-5">
           <PopularNowContainer />
         </div>
         <div className="row">
-          <div className="col-12 col-sm-4">
+          <div className="col-12 col-sm-4 mb-5 mb-sm-0">
             <h3>Recently Released</h3>
             <GameCardColumnContainer
               gameColumnCategory={GameColumnCategory.RECENTLY_RELEASED}
             />
           </div>
-          <div className="col-12 col-sm-4">
+          <div className="col-12 col-sm-4 mb-5 mb-sm-0">
             <h3>Coming Soon</h3>
             <GameCardColumnContainer
               gameColumnCategory={GameColumnCategory.COMING_SOON}
