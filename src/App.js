@@ -24,6 +24,9 @@ const App = () => {
             </Route>
             <Route exact path="/games/:gameSlug" component={GamePage} />
             <Route exact path="/news" component={NewsPage} />
+            <Route>
+              <Redirect to="/" />
+            </Route>
           </Switch>
         </Suspense>
       </main>
