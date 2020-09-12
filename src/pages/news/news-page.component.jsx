@@ -33,6 +33,7 @@ const NewsPage = ({ getNewsStart }) => {
     );
 
     history.push(location.pathname + "?" + querySearch);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
