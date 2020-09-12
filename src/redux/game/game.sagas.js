@@ -70,34 +70,34 @@ function* onGetGameStart() {
   yield takeLatest(GameActionTypes.GET_GAME_START, getGame);
 }
 
-function* onGetPopularNow() {
+function* onGetPopularNowStart() {
   yield takeLatest(GameActionTypes.GET_POPULAR_NOW_START, getPopularNow);
 }
 
-function* onGetMostAnticipated() {
+function* onGetMostAnticipatedStart() {
   yield takeLatest(
     GameActionTypes.GET_MOST_ANTICIPATED_START,
     getMostAnticipated
   );
 }
 
-function* onGetRecentlyReleased() {
+function* onGetRecentlyReleasedStart() {
   yield takeLatest(
     GameActionTypes.GET_RECENTLY_RELEASED_START,
     getRecentlyReleased
   );
 }
 
-function* onGetComingSoon() {
+function* onGetComingSoonStart() {
   yield takeLatest(GameActionTypes.GET_COMING_SOON_START, getComingSoon);
 }
 
 export function* gameSagas() {
   yield all([
     call(onGetGameStart),
-    call(onGetPopularNow),
-    call(onGetMostAnticipated),
-    call(onGetRecentlyReleased),
-    call(onGetComingSoon),
+    call(onGetPopularNowStart),
+    call(onGetMostAnticipatedStart),
+    call(onGetRecentlyReleasedStart),
+    call(onGetComingSoonStart),
   ]);
 }
