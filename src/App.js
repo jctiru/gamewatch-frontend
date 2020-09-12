@@ -9,6 +9,7 @@ import "./App.css";
 
 const HomePage = lazy(() => import("./pages/home/home-page.component"));
 const GamePage = lazy(() => import("./pages/game/game-page.component"));
+const NewsPage = lazy(() => import("./pages/news/news-page.component"));
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
               <Redirect to="/" />
             </Route>
             <Route exact path="/games/:gameSlug" component={GamePage} />
+            <Route exact path="/news" component={NewsPage} />
           </Switch>
         </Suspense>
       </main>
