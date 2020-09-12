@@ -106,7 +106,7 @@ const Game = ({ game }) => {
                       <p>{game.storyline}</p>
                     </>
                   ) : null}
-                  {game.similar_games.length ? (
+                  {game.similar_games ? (
                     <GameRecommendation games={game.similar_games} />
                   ) : null}
                 </div>
