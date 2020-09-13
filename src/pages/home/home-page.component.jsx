@@ -26,7 +26,7 @@ const HomePage = ({
   return (
     <>
       <div className="container">
-        <div className="jumbotron mt-4 text-white">
+        <div className="jumbotron card border-secondary mt-4 text-white">
           <h1 className="display-4 font-weight-bold">Game on!</h1>
           <p className="lead">
             GameWatch is your site which brings you video game information, news
