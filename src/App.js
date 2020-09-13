@@ -10,7 +10,7 @@ import "./App.css";
 const HomePage = lazy(() => import("./pages/home/home-page.component"));
 const GamePage = lazy(() => import("./pages/game/game-page.component"));
 const NewsPage = lazy(() => import("./pages/news/news-page.component"));
-const AboutPage = lazy(() => import("./pages/about/aboute-page.component"));
+const AboutPage = lazy(() => import("./pages/about/about-page.component"));
 
 const App = () => {
   return (
