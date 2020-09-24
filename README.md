@@ -102,6 +102,7 @@ Frontend repo goes through TravisCI pipeline which builds the assets and uploads
 - Change news source to [GameSpot API](https://www.gamespot.com/api/documentation#toc-0-4) because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
 - Change most popular and most anticipated games query logic because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
 - Add retryer on feignclient of IGDB API calls due to [new rate limits](https://api-docs.igdb.com/#rate-limits)
+- Add redis to cache results due to [new rate limits](https://api-docs.igdb.com/#rate-limits)
 - Add feign error decoder
 - Add hystrix circuit breaker
 - Add config server
