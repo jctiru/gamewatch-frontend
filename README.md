@@ -1,68 +1,113 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GameWatch
 
-## Available Scripts
+[![Build Status](https://travis-ci.com/jctiru/gamewatch-frontend.svg?branch=master)](https://travis-ci.com/jctiru/gamewatch-frontend)
 
-In the project directory, you can run:
+## Live Link
 
-### `npm start`
+- Frontend - <https://gamewatch.jctiru.com>
+- Backend - <https://api.gamewatch.jctiru.com>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+A game information and news source website. Java microservices using Spring Boot and Spring Cloud for backend and React SPA for frontend. Microservices environment is simulated as multiple containers inside a single EC2 instance.
 
-### `npm test`
+Backend hosted on AWS Elastic Beanstalk with multi-docker config. Frontend assets on AWS S3. S3 bucket is behind AWS CloudFront CDN and is not directly accessible except only through AWS CloudFront by using Origin Access Identity. AWS Cloudfront SSL/TLS certificate for custom domain is provided by AWS ACM. Domain registration and DNS service handled by AWS Route53.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend repo goes through TravisCI pipeline which builds the assets and uploads to S3 bucket. Backend repos also goes through TravisCI pipeline which builds and uploads the docker images to Docker Hub, then triggers a central GitlabCI pipeline which handles deployment to Elastic Beanstalk for all projects (includes other projects which are also hosted in the same single EC2 instance). Traefik is used as reverse proxy for multiple containers and to automate Let's Encrypt SSL/TLS certificate generation/management.
 
-### `npm run build`
+## Project Flow Diagram
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Flow.jpg](Flow.jpg)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Inside Elastic Beanstalk
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![ElasticBeanstalk.jpg](ElasticBeanstalk.jpg)
 
-### `npm run eject`
+## Backend Microservices
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Discovery Server - <https://github.com/jctiru/gamewatch-discovery-server>
+- API Gateway - <https://github.com/jctiru/gamewatch-api-gateway>
+- Game Catalog Service - <https://github.com/jctiru/gamewatch-game-catalog-service>
+- Game News Service - <https://github.com/jctiru/gamewatch-game-news-service>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- View popular games right now, recently released games, coming soon games and most anticipated games
+- View game information like release date, publisher, platforms, videos, screenshots, artworks, similar games, etc.
+- View latest gaming news
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Overall Project Tech Stack
 
-## Learn More
+### Frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [React](https://reactjs.org/) - JS library for building user interfaces
+- [React Router](https://reacttraining.com/react-router/) - Routing for react
+- [Redux](https://redux.js.org/) - JS library for managing application state
+- [Redux-Saga](https://redux-saga.js.org/) - Redux middleware for handling side effects
+- [Bootstrap](https://getbootstrap.com/) - CSS framework
+- [Bootswatch](https://bootswatch.com/) - Bootstrap themes
+- [Axios](https://github.com/axios/axios) Promise based HTTP client
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Backend
 
-### Code Splitting
+- [Spring Boot](https://spring.io/projects/spring-boot) - Preconfigured spring framework
+- [Eureka](https://github.com/spring-cloud/spring-cloud-netflix) - Client-side service discovery
+- [Zuul](https://github.com/spring-cloud/spring-cloud-netflix) - API Gateway
+- [Feign](https://github.com/OpenFeign/feign) - Java to HTTP client binder
+- [IGDB API](https://github.com/OpenFeign/feign) - Gaming database site recently acquired by Twitch
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### AWS
 
-### Analyzing the Bundle Size
+- [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) - PaaS for hosting webapp
+- [AWS S3](https://aws.amazon.com/s3/) - File storage for static front-end assets
+- [AWS Cloudfront](https://aws.amazon.com/cloudfront/) - CDN for S3
+- [AWS Route53](https://aws.amazon.com/route53/) - Domain registrar and DNS service
+- [AWS ACM](https://aws.amazon.com/certificate-manager/) - SSL/TLS certificates for cloudfront with custom domain
+- [AWS IAM](https://aws.amazon.com/iam/) - Manage permissions to allow and deny access to AWS resources
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Misc/Others
 
-### Making a Progressive Web App
+- [OpenJ9](https://www.eclipse.org/openj9/) - JVM for OpenJDK for low memory footprint, used for building docker images of backend
+- [Docker](https://www.docker.com/) - Containerization
+- [TravisCI](https://travis-ci.com/) - CI/CD for building the frontend assets and deploying to S3; CI/CD for building docker images of backend and pushing to dockerhub
+- [GitlabCI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) - CI/CD for aggregating projects for deployment to AWS
+- [git-secret](https://git-secret.io/) - Encrypt git files at rest and decrypt during CI/CD on Gitlab private repo that deploys to AWS
+- [Traefik](https://containo.us/traefik/) - Reverse proxy and automatic SSL/TLS management
+- [Let's Encrypt](https://letsencrypt.org/) - SSL/TLS certificate
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Overall Project To-Do List
 
-### Advanced Configuration
+### General
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Code refactoring
+- Code cleanup
+- Add tests
+- Etc...
 
-### Deployment
+### Frontend Specific
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Improve design a bit
+- Change carousels arrows design
+- Change release date presentation for no-fixed release dates
+- Add lightbox for media carousel in game page
+- Add captions for media carousel in game page
+- Add captions for recommended games carousel in game page
+- Etc...
 
-### `npm run build` fails to minify
+### Backend Specific
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Add game search microservice
+- Add game reviews microsevice
+- Rewrite fetching of [IGDB API from v3 to v4](https://api-docs.igdb.com/#upgrading-to-v4-from-v3)
+- Change news source to [GameSpot API](https://www.gamespot.com/api/documentation#toc-0-4) because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
+- Change most popular and most anticipated games query logic because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
+- Add retryer on feignclient of IGDB API calls due to [new rate limits](https://api-docs.igdb.com/#rate-limits)
+- Add feign error decoder
+- Add hystrix circuit breaker
+- Add config server
+- Add zipkin and sleuth
+- Add filebeat that sends to external ELK Stack
+- Add swagger documentation
+- Improve error messages
+- Add simple response on http get on root url
+- Etc...
