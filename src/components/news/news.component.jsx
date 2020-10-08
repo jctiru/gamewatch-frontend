@@ -9,17 +9,17 @@ const News = ({ newsList }) => {
   return (
     <div className="container">
       {newsList.map((news) => (
-        <>
+        <div key={news.id}>
           <hr />
-          <div className="row" key={news.id}>
+          <div className="row">
             <div className="col-md-3">
               <a
-                href={news.website.url}
+                href={news.site_detail_url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src={news.image ? news.image : null}
+                  src={news.image ? news.image.original : null}
                   className="img-fluid"
                   alt={news.title}
                 />
@@ -27,7 +27,7 @@ const News = ({ newsList }) => {
             </div>
             <div className="col-md-9">
               <a
-                href={news.website.url}
+                href={news.site_detail_url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -35,15 +35,15 @@ const News = ({ newsList }) => {
               </a>
               <div className="d-block mb-2">
                 <span>
-                  {news.author} | {news.pulse_source.name} |{" "}
-                  {dayjs.unix(news.published_at).format("MMM DD, YYYY")}
+                  GameSpot | {news.authors} |{" "}
+                  {dayjs(news.publish_date).format("MMM DD, YYYY h:mm A")} PDT
                 </span>
               </div>
-              <p className="lead">{news.summary}</p>
+              <p className="lead">{news.deck}</p>
             </div>
           </div>
           <hr className="mb-5" />
-        </>
+        </div>
       ))}
     </div>
   );
