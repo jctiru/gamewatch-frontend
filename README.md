@@ -98,9 +98,9 @@ Frontend repo goes through TravisCI pipeline which builds the assets and uploads
 
 - Add game search microservice
 - Add game reviews microsevice
-- Rewrite fetching of [IGDB API from v3 to v4](https://api-docs.igdb.com/#upgrading-to-v4-from-v3)
-- Change news source to [GameSpot API](https://www.gamespot.com/api/documentation#toc-0-4) because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
-- Change most popular and most anticipated games query logic because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)
+- ~~Rewrite fetching of [IGDB API from v3 to v4](https://api-docs.igdb.com/#upgrading-to-v4-from-v3)~~
+- ~~Change news source to [GameSpot API](https://www.gamespot.com/api/documentation#toc-0-4) because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)~~
+- ~~Change most popular and most anticipated games query logic because of [IGDB API breaking changes](https://api-docs.igdb.com/#breaking-changes)~~
 - Add retryer on feignclient of IGDB API calls due to [new rate limits](https://api-docs.igdb.com/#rate-limits)
 - Add redis to cache results due to [new rate limits](https://api-docs.igdb.com/#rate-limits)
 - Add feign error decoder
