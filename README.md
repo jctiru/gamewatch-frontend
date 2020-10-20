@@ -54,7 +54,9 @@ Frontend repo goes through TravisCI pipeline which builds the assets and uploads
 - [Eureka](https://github.com/spring-cloud/spring-cloud-netflix) - Client-side service discovery
 - [Zuul](https://github.com/spring-cloud/spring-cloud-netflix) - API Gateway
 - [Feign](https://github.com/OpenFeign/feign) - Java to HTTP client binder
+- [Twitch API](https://dev.twitch.tv/docs/) - Get OAuth token for IGDB API
 - [IGDB API](https://github.com/OpenFeign/feign) - Gaming database site recently acquired by Twitch
+- [GameSpot API](https://www.gamespot.com/api/) - Used for gaming news
 
 ### AWS
 
